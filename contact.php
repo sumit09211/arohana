@@ -252,9 +252,9 @@ switch (@$_GET['do'])
 				<!-- //footer social icons -->
 				<!-- copyright -->
 				<div class="copy_right mx-md-auto mb-md-0 mb-3">
-					<p class="text-bl let">&copy; 2019 Arohana Management Solutions.
-						 | Design by
-						<a href="http://wireon.in/" target="_blank">Wireon Infosystem (P) Ltd</a>
+					<p class="text-bl let">&copy; <script>document.write(new Date().getFullYear())</script> Arohana Management Solutions.
+						 <!-- | Design by
+						<a href="http://wireon.in/" target="_blank">Wireon Infosystem (P) Ltd</a> -->
 					</p>
 				</div>
 				<!-- //copyright -->
