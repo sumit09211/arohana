@@ -13,177 +13,204 @@
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="./css/style.css" type="text/css" media="all" />
     <style>
-		.main-splash{
-			height: 100%;
-      position: relative;
-		}
+      .main-splash {
+        /* height: 100%; */
+        position: relative;
+      }
+
+      .main-splash .logo {
+        position: absolute;
+        top: 15px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+		z-index: 9;
+      }
+      .main-splash .logo img {
+        max-width: 140px;
+        width: 100%;
+      }
+
       .splash-wrapper {
-		  display: flex;
+        display: flex;
         align-items: stretch;
         height: 100%;
         width: 100%;
       }
       .splash-area {
-        flex: 1;
         width: 50%;
-        /* height: 100%; */
         display: flex;
-		flex-flow: column wrap;
-        align-items:center;
+        flex-flow: column wrap;
         justify-content: space-between;
-        background-color: #eaeefa;
-		padding: 50px 60px;
+        /* background-color: #eaeefa; */
+        /* background-color: #f6f6f9;
+		 */
+        background-color: #8bc34a;
+        padding: 100px 60px;
+        overflow: hidden;
+		position: relative;
       }
-      .splash-area:last-child {
+
+      .splash-area:before,
+	  .splash-area:last-child:before  {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0.1;
+      }
+	  .splash-area:before{
+		background: url(./images/splash5.jpg) no-repeat;
+    	background-size: cover;
+	  }
+	  .splash-area:last-child:before{
+		background: url(./images/splash4.jpg) no-repeat;
+		background-size: cover;
+	  }
+	  .splash-area h3,
+	  .splash-area p {
+		  color: #fff;
+	  }
+	  .splash-area:last-child{
+		  background: #3f51b5;
+	  }		
+      /* .splash-area:last-child {
         background-color: #fff;
         align-items: flex-start;
+      } */
+      .splash-area img {
+        width: 70px;
+        margin: 5px 15px 0 0;
+        border-radius: 5px;
       }
-	  .splash-area:last-child img {
-		  width: 70px;
-		  margin: 5px 15px 0 0;
-		  border-radius: 5px;
-	  }
-	  .splash-area .logo{
-		  max-width: 140px;
-	  }
-	  .splash-area .logo  img,
-	  .splash-area .banner img{
-		  width: 100%;
-	  }
-    
-	  .splash-carousel .carousel-indicators{
-		  bottom: -20px;
-	  }
-	  .splash-carousel .carousel-indicators li {
-		background-color: #eaeefa;
-	  }
-	  .splash-carousel .carousel-indicators .active {
-		background-color: #022362;
+
+      .splash-carousel .carousel-indicators {
+        bottom: -20px;
+      }
+      .splash-carousel .carousel-indicators li {
+        background-color: #eaeefa;
+      }
+      .splash-carousel .carousel-indicators .active {
+        background-color: #022362;
+      }
+
+      .splash-carousel .carousel-inner {
+        margin-bottom: 20px;
+      }
+
+      .btn-cta {
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        box-shadow: 0 4px 20px -2px rgba(255, 255, 255, 0.3);
+        padding: 12px 30px;
+        border-radius: 25px;
+		background: #fff;
+		  color: #022362 !important;
+      }
+
+	  .btn-cta:hover{
+		  opacity: 1;
 	  }
 
-	  .splash-carousel .carousel-inner{
-		margin-bottom: 20px;
-	  }
+      @media screen and (max-width: 1024px) {
+        .splash-wrapper {
+          flex-direction: column;
+        }
+        .splash-area {
+          width: 100%;
+          background-color: #fff;
+          padding: 50px 15px 0;
+          height: auto;
+        }
+        .splash-area:last-child {
+          padding-top: 50px;
+        }
+        .splash-area > .banner {
+          display: none;
+        }
 
-
-.btn-cta{
-	position: absolute;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-	box-shadow: 0 4px 20px -2px rgba(39, 94, 254, 0.5);
-	padding: 12px 30px;
-    border-radius: 25px;
-}
-
-@media screen and (max-width: 1024px) {
-  .splash-wrapper {
-	flex-direction: column;
-  }
-  .splash-area{
-	  width: 100%;
-	  background-color: #fff;
-	  padding: 50px 15px 0;
-	  height: auto;
-  }
-  .splash-area:last-child{
-	  padding-top: 50px;
-  }
-  .splash-area > .banner {
-	display: none;
-  }
-
-  .btn-cta{
-	  position: relative;
-	  bottom: 0;
-	  margin: 20px 0;
-  }
-}
-
-
+        .btn-cta {
+          position: relative;
+          bottom: 0;
+          margin: 20px 0;
+        }
+      }
     </style>
   </head>
   <body>
-    <div class="main-splash" id="home">
+    <div class="main-splash" id="index">
+      <div class="logo">
+        <a href="index.html"
+          ><img src="./images/logo-white.png" title="Rising towards excellence"
+        /></a>
+      </div>
       <div class="splash-wrapper">
         <div class="splash-area">
-			<div class="logo">
-				<a href="index.html"><img src="./images/logo.png" title="Rising towards excellence"/></a>
-			</div>
-			<div class="banner"><img src="./images/splash3.png" /></div>
-		</div>
-        <div class="splash-area">
-			<div id="carouselExampleFade" class="carousel slide splash-carousel" data-ride="carousel" >
-                <!-- Indicators -->
-                <ul class="carousel-indicators">
-                    <li data-target="#carouselExampleFade" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleFade" data-slide-to="1"></li>
-                </ul>
-                
-                <!-- The slideshow -->
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-						
-							<h3 class="mb-4">
-							  Providing performance through behavioural therapy and HR
-							  interventions
-							</h3>
-				
-							<p class="mb-4">
-							  Arohana is a one stop solution for capacity building, behavioural
-							  therapy, people management, performance management and HR
-							  development through proven scientific tools and interventions. It
-							  provides individual and group level solutions for aspirants from
-							  academics, corporates, and other segments. The effort is supported
-							  by a veteran group of experts and professionals with insight and
-							  experience of decades.
-							</p>
-							<p class="mb-5">
-							  May contact for your concerns and queries:<br />
-							  <strong>Email: contact@arohana.co.in</strong>
-							</p>
-				
-							<div class="d-flex justify-content-end">
-								<div><img src="./images/shweta.jpg" alt="Shweta Gupta" /></div>
-								<div>
-							  <p>Protagonist</p>
-							  <p><strong>Shweta Gupta (Director)</strong></p>
-							  <p>Fellow, IIM Indore</p>
-							</div>
-							</div>
-						  
-                    </div>
-                    <div class="carousel-item">
-							<h3 class="mb-4">
-								Designing ecosystem through eternal designing and models for health and happy living
-							</h3>
-							<p class="mb-4">
-								Arohana understands that human life and behaviour is greatly affected by the ecosystem and the structures in which we live. Therefore, we also provide best architectural solutions, designs and structures to generate a positive, simple, eco-friendly and cost-effective building design. If you are in search of something distinct while generating your dream place, then we may help in bringing that distinct, unique design for you.
-							</p>
-							<p class="mb-5">
-								May contact for your concerns and queries: <br />
-<strong> Email: contact@arohana.co.in</strong>
-
-							</p>
-							<div class="d-flex justify-content-end">
-								<div><img src="./images/sneha.jpg" alt="Shweta Gupta" /></div>
-								<div>
-								<p>Protagonist </p>
-<p><strong>Sneha Kashyap (Director)</strong> </p>
-<p>M.Des., CEPT Ahmedabad</p>
-</div>
-							
-						  </div>
-                </div>
-                
-                
+          <!-- <div class="banner"><img src="./images/splash3.png" /></div> -->
+          <h3 class="mb-4">
+            Designing ecosystem through eternal designing and models for health
+            and happy living
+          </h3>
+          <p class="mb-4">
+            Arohana understands that human life and behaviour is greatly
+            affected by the ecosystem and the structures in which we live.
+            Therefore, we also provide best architectural solutions, designs and
+            structures to generate a positive, simple, eco-friendly and
+            cost-effective building design. If you are in search of something
+            distinct while generating your dream place, then we may help in
+            bringing that distinct, unique design for you.
+          </p>
+          <p class="mb-5">
+            May contact for your concerns and queries: <br />
+            <strong> Email: contact@arohana.co.in</strong>
+          </p>
+          <div class="d-flex justify-content-end">
+            <div><img src="./images/sneha.jpg" alt="Shweta Gupta" /></div>
+            <div>
+              <p>Protagonist</p>
+              <p><strong>Sneha Kashyap (Director)</strong></p>
+              <p>M.Des., CEPT Ahmedabad</p>
+            </div>
+          </div>
         </div>
-		</div>
+        <div class="splash-area">
+          <h3 class="mb-4">
+            Providing performance through behavioural therapy and HR
+            interventions
+          </h3>
+
+          <p class="mb-4">
+            Arohana is a one stop solution for capacity building, behavioural
+            therapy, people management, performance management and HR
+            development through proven scientific tools and interventions. It
+            provides individual and group level solutions for aspirants from
+            academics, corporates, and other segments. The effort is supported
+            by a veteran group of experts and professionals with insight and
+            experience of decades.
+          </p>
+          <p class="mb-5">
+            May contact for your concerns and queries:<br />
+            <strong>Email: contact@arohana.co.in</strong>
+          </p>
+
+          <div class="d-flex justify-content-end">
+            <div>
+              <img src="./images/shweta.jpg" alt="Shweta Gupta" />
+            </div>
+            <div>
+              <p>Protagonist</p>
+              <p><strong>Shweta Gupta (Director)</strong></p>
+              <p>Fellow, IIM Indore</p>
+            </div>
+          </div>
+        </div>
       </div>
-		
+      <a class="btn button-style btn-cta" href="home.html">Please Enter</a>
     </div>
-	<a class="btn button-style btn-cta" href="home.html">Continue...</a>
-	</div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
